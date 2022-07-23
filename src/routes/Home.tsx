@@ -1,7 +1,11 @@
-import { Text } from "@mantine/core"
+import SearchForm from "../components/forms/SearchForm"
 
 const Home = () => {
-  return <Text>Hello from home!</Text>
+  return (
+    <>
+      <SearchForm />
+    </>
+  )
 }
 
 export default Home

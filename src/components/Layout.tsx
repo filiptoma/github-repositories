@@ -1,4 +1,13 @@
-import { AppShell, Center, Container, Header, Title, useMantineColorScheme } from "@mantine/core"
+import {
+  AppShell,
+  Center,
+  Container,
+  Header,
+  Title,
+  UnstyledButton,
+  useMantineColorScheme
+} from "@mantine/core"
+import { Link } from "react-router-dom"
 import ToggleColorSchemeButton from "./buttons/ToggleColorSchemeButton"
 
 type Props = {
@@ -26,7 +35,9 @@ const Layout = ({ children }: Props) => {
               height: "100%"
             }}
           >
-            <Title>Github Repositories</Title>
+            <UnstyledButton component={Link} to="/">
+              <Title>Github Repositories</Title>
+            </UnstyledButton>
             <ToggleColorSchemeButton />
           </Container>
         </Header>
