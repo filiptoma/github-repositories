@@ -3,10 +3,8 @@ import { useForm, yupResolver } from "@mantine/form"
 import { SearchIcon } from "@heroicons/react/outline"
 import SearchButton from "../buttons/SearchButton"
 import { userSearchSchema } from "../../utils/schema"
-import { useCallback, useState } from "react"
-import { getUserData } from "../../utils/api"
-import { useUserData } from "../../hooks/useUserData"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import useUserSearch from "../../hooks/useUserSearch"
 
 const SearchForm = (props: TextInputProps) => {
   const form = useForm({
@@ -14,26 +12,8 @@ const SearchForm = (props: TextInputProps) => {
     initialValues: { user: "" }
   })
 
-  const [, setUserData] = useUserData()
-  const navigate = useNavigate()
   const [isLoading, setLoading] = useState<boolean>(false)
-
-  // minoveaz
-  // abhisheknaiidu
-  const fetch = useCallback(async (user: string) => {
-    setLoading(true)
-    try {
-      const res = await getUserData(user)
-      setUserData(res)
-    } catch (err) {
-      // TODO: error handling - notification UI
-      console.error(err)
-    } finally {
-      // TODO: clear input field
-      setLoading(false)
-      navigate(`/${user}`)
-    }
-  }, [])
+  const fetch = useUserSearch(setLoading)
 
   return (
     <form onSubmit={form.onSubmit(({ user }) => fetch(user))}>
