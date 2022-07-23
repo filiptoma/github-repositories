@@ -1,7 +1,8 @@
 import { MantineThemeOverride } from "@mantine/core"
 
 const theme: MantineThemeOverride = {
-  fontFamily: "Poppins"
+  fontFamily: "Poppins",
+  colorScheme: "dark"
 }
 
 export default theme
