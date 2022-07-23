@@ -32,7 +32,9 @@ const Layout = ({ children }: Props) => {
         </Header>
       }
     >
-      <Container>{children}</Container>
+      <Container size="xs" my={86}>
+        {children}
+      </Container>
     </AppShell>
   )
 }
