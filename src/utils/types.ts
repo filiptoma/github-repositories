@@ -4,18 +4,21 @@ export type TUser = {
   blog: string
   created_at: string
   followers: number
-  following: 1
-  html_url: string
+  following: number
   location: string
   login: string
   name: string
   public_gists: number
   public_repos: number
-  hireable: boolean
+  type: "User" | "Organization"
 }
 
 export type TOrganisation = {
   avatar_url: string
   description: string
   login: string
+}
+
+export type TSearchForm = {
+  user: string
 }

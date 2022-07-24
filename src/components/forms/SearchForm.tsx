@@ -13,10 +13,10 @@ const SearchForm = (props: TextInputProps) => {
   })
 
   const [isLoading, setLoading] = useState<boolean>(false)
-  const fetch = useUserSearch(setLoading)
+  const fetchUser = useUserSearch(setLoading, form.setValues)
 
   return (
-    <form onSubmit={form.onSubmit(({ user }) => fetch(user))}>
+    <form onSubmit={form.onSubmit(({ user }) => fetchUser(user))}>
       <TextInput
         icon={<SearchIcon width={18} height={18} />}
         radius="xl"

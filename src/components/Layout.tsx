@@ -1,12 +1,4 @@
-import {
-  AppShell,
-  Center,
-  Container,
-  Header,
-  Title,
-  UnstyledButton,
-  useMantineColorScheme
-} from "@mantine/core"
+import { AppShell, Container, Header, Title, UnstyledButton, useMantineTheme } from "@mantine/core"
 import { Link } from "react-router-dom"
 import ToggleColorSchemeButton from "./buttons/ToggleColorSchemeButton"
 
@@ -15,18 +7,28 @@ type Props = {
 }
 
 const Layout = ({ children }: Props) => {
-  const { colorScheme } = useMantineColorScheme()
-  const dark = colorScheme === "dark"
+  const theme = useMantineTheme()
+  const dark = theme.colorScheme === "dark"
   return (
     <AppShell
-      styles={(theme) => ({
-        main: {
-          background: dark ? theme.colors.dark[8] : theme.colors.gray[0]
-        }
-      })}
       fixed
+      styles={{
+        main: {
+          backgroundColor: dark ? theme.colors.dark[7] : theme.colors.gray[0],
+          color: dark ? theme.colors.dark[0] : theme.colors.gray[8]
+        }
+      }}
       header={
-        <Header height={70} p="md">
+        <Header
+          height={60}
+          py={32}
+          styles={{
+            root: {
+              backgroundColor: dark ? theme.colors.dark[6] : theme.white,
+              borderBottom: dark ? "none" : `1px solid ${theme.colors.gray[2]}`
+            }
+          }}
+        >
           <Container
             style={{
               display: "flex",
@@ -36,14 +38,14 @@ const Layout = ({ children }: Props) => {
             }}
           >
             <UnstyledButton component={Link} to="/">
-              <Title>Github Repositories</Title>
+              <Title order={2}>Github Repositories</Title>
             </UnstyledButton>
             <ToggleColorSchemeButton />
           </Container>
         </Header>
       }
     >
-      <Container size="xs" my={86}>
+      <Container size="xs" my={60}>
         {children}
       </Container>
     </AppShell>
