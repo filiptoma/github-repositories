@@ -1,10 +1,10 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
-import { TOrganisation, TUser } from "../utils/types"
+import { TOrganization, TUser } from "../utils/types"
 
 type UserData =
   | {
       user: TUser
-      orgs: [TOrganisation]
+      orgs: [TOrganization]
     }
   | undefined
 

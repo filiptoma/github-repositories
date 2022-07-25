@@ -17,6 +17,7 @@ const useUserSearch = (
     setLoading(true)
     try {
       const res = await getUserData(user)
+      console.log(res)
       setUserData(res)
       navigate(`/${user}`)
     } catch (err) {

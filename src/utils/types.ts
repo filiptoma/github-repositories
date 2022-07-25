@@ -13,10 +13,21 @@ export type TUser = {
   type: "User" | "Organization"
 }
 
-export type TOrganisation = {
+export type TOrganization = {
   avatar_url: string
-  description: string
   login: string
+}
+
+export type TRepository = {
+  created_at: string
+  updated_at: string
+  name: string
+  html_url: string
+  language: string
+  stargazers_count: number
+  license: {
+    spdx_id: string
+  }
 }
 
 export type TSearchForm = {
