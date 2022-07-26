@@ -1,3 +1,4 @@
+import { Container } from "@mantine/core"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import UserCard from "../components/cards/UserCard"
@@ -23,10 +24,10 @@ const User = () => {
   }, [])
 
   return (
-    <>
+    <Container size="xs">
       {isLoading && <Spinner />}
       {userData && <UserCard />}
-    </>
+    </Container>
   )
 }
 

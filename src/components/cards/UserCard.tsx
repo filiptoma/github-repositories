@@ -21,7 +21,7 @@ const UserCard = () => {
   const [userData] = useUserData()
   return (
     <Card radius="lg" p="lg">
-      <BackButton />
+      <BackButton absolute />
       <Stack align="center" spacing="lg">
         {userData?.user.type === "Organization" ? (
           <Indicator

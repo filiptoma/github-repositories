@@ -25,9 +25,6 @@ export type TRepository = {
   html_url: string
   language: string
   stargazers_count: number
-  license: {
-    spdx_id: string
-  }
 }
 
 export type TSearchForm = {

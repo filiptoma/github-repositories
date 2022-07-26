@@ -2,7 +2,11 @@ import { ActionIcon } from "@mantine/core"
 import { ChevronLeftIcon } from "@heroicons/react/outline"
 import { useNavigate } from "react-router-dom"
 
-const BackButton = () => {
+type Props = {
+  absolute?: boolean
+}
+
+const BackButton = ({ absolute }: Props) => {
   const navigate = useNavigate()
   return (
     <ActionIcon
@@ -10,10 +14,11 @@ const BackButton = () => {
       radius="xl"
       onClick={() => navigate(-1)}
       sx={(theme) => ({
-        position: "absolute",
+        position: absolute ? "absolute" : "relative",
+        backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
         "&:hover": {
           backgroundColor:
-            theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
+            theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
         }
       })}
     >

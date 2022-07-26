@@ -2,6 +2,7 @@ import { Group, Stack, Text } from "@mantine/core"
 import { useUserData } from "../hooks/useUserData"
 import { LocationMarkerIcon, LinkIcon, UserIcon } from "@heroicons/react/outline"
 import IconStat from "./IconStat"
+import { formatISODate } from "../utils"
 
 const GithubStats = () => {
   const [userData] = useUserData()
@@ -45,10 +46,7 @@ const GithubStats = () => {
         {userData?.user.blog && (
           <IconStat Icon={LinkIcon} stat={userData?.user.blog} url={userData.user.blog} />
         )}
-        <IconStat
-          Icon={UserIcon}
-          stat={new Date(userData?.user.created_at as never).toLocaleDateString("en-GB")}
-        />
+        <IconStat Icon={UserIcon} stat={formatISODate(userData?.user.created_at ?? "")} />
       </Stack>
     </>
   )

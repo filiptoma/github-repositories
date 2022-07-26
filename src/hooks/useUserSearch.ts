@@ -1,9 +1,8 @@
-import { showNotification } from "@mantine/notifications"
 import { Dispatch, SetStateAction } from "react"
 import { useNavigate } from "react-router-dom"
 import { getUserData } from "../utils/api"
-import error from "../utils/error"
 import { TSearchForm } from "../utils/types"
+import useError from "./useError"
 import { useUserData } from "./useUserData"
 
 const useUserSearch = (
@@ -17,17 +16,10 @@ const useUserSearch = (
     setLoading(true)
     try {
       const res = await getUserData(user)
-      console.log(res)
       setUserData(res)
       navigate(`/${user}`)
     } catch (err) {
-      showNotification({
-        title: "Error occured",
-        message: error(err),
-        color: "red",
-        autoClose: 5000
-      })
-      navigate("/")
+      useError(err)
     } finally {
       setValues && setValues({ user: "" })
       setLoading(false)

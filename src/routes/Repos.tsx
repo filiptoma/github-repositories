@@ -1,20 +1,37 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Spinner from "../components/Spinner"
+import ReposTable from "../components/tables/ReposTable"
+import useError from "../hooks/useError"
 import { getRepos } from "../utils/api"
+import { TRepository } from "../utils/types"
 
 const Repos = () => {
   const { userId } = useParams()
   const [isLoading, setLoading] = useState<boolean>(false)
-  // const [repos, setRepos]
+  const [repos, setRepos] = useState<TRepository[]>()
 
   useEffect(() => {
     ;(async () => {
-      const res = userId && (await getRepos(userId))
-      console.log(res)
+      setLoading(true)
+      try {
+        const res = userId && (await getRepos(userId))
+        console.log(res)
+        setRepos(res)
+      } catch (err) {
+        useError(err)
+      } finally {
+        setLoading(false)
+      }
     })()
   }, [])
 
-  return <div>repos route</div>
+  return (
+    <>
+      {isLoading && <Spinner />}
+      {repos && <ReposTable repos={repos} />}
+    </>
+  )
 }
 
 export default Repos
