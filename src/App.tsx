@@ -1,18 +1,18 @@
-import "@fontsource/poppins/400.css" // Weight: normal
-import "@fontsource/poppins/600.css" // Weight: semibold
-import "@fontsource/poppins/700.css" // Weight: bold
+import "@fontsource/poppins/400.css"
+import "@fontsource/poppins/600.css"
+import "@fontsource/poppins/700.css"
 import "@fontsource/poppins/800.css"
-import "@fontsource/poppins/900.css" // Weight: black
+import "@fontsource/poppins/900.css"
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core"
 import { NotificationsProvider } from "@mantine/notifications"
+import { useState } from "react"
 
 import "./App.css"
 
-import theme from "./utils/theme/theme"
 import Router from "./components/Router"
 import Layout from "./components/Layout"
-import { useState } from "react"
 import { UserDataProvider } from "./hooks/useUserData"
+import theme from "./utils/theme/theme"
 import styles from "./utils/theme/styles"
 
 const App = () => {

@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+
 import UserCard from "../components/cards/UserCard"
 import Spinner from "../components/Spinner"
 import { useUserData } from "../hooks/useUserData"
@@ -16,7 +17,6 @@ const User = () => {
   const [userData] = useUserData()
 
   useEffect(() => {
-    // if trying to view same user as the one already in state
     if (!userId || userData?.user.login === userId) {
       return
     }

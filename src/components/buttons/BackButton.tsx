@@ -1,5 +1,5 @@
-import { ActionIcon } from "@mantine/core"
 import { ChevronLeftIcon } from "@heroicons/react/outline"
+import { ActionIcon } from "@mantine/core"
 import { useNavigate } from "react-router-dom"
 
 type Props = {

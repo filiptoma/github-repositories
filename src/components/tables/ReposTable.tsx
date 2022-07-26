@@ -1,19 +1,10 @@
-import {
-  ActionIcon,
-  Box,
-  Container,
-  Grid,
-  Group,
-  Paper,
-  Table,
-  Title,
-  useMantineTheme
-} from "@mantine/core"
+import { ExternalLinkIcon } from "@heroicons/react/outline"
+import { ActionIcon, Box, Paper, Table, useMantineTheme } from "@mantine/core"
+
+import BackButton from "../buttons/BackButton"
+
 import { formatISODate } from "../../utils"
 import { TRepository } from "../../utils/types"
-import { ExternalLinkIcon } from "@heroicons/react/outline"
-import BackButton from "../buttons/BackButton"
-import { useParams } from "react-router-dom"
 
 type Props = {
   repos: TRepository[]

@@ -1,5 +1,6 @@
 import { AppShell, Container, Header, Title, UnstyledButton, useMantineTheme } from "@mantine/core"
 import { Link } from "react-router-dom"
+
 import ToggleColorSchemeButton from "./buttons/ToggleColorSchemeButton"
 
 type Props = {

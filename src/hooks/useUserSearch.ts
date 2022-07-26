@@ -1,9 +1,11 @@
 import { Dispatch, SetStateAction } from "react"
 import { useNavigate } from "react-router-dom"
-import { getUserData } from "../utils/api"
-import { TSearchForm } from "../utils/types"
+
 import useError from "./useError"
 import { useUserData } from "./useUserData"
+
+import { getUserData } from "../utils/api"
+import { TSearchForm } from "../utils/types"
 
 const useUserSearch = (
   setLoading: Dispatch<SetStateAction<boolean>>,

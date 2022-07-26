@@ -1,20 +1,11 @@
-import {
-  Avatar,
-  Card,
-  CloseButton,
-  Grid,
-  Group,
-  Indicator,
-  Stack,
-  Text,
-  Title,
-  useMantineTheme
-} from "@mantine/core"
-import { useUserData } from "../../hooks/useUserData"
+import { Avatar, Card, Group, Indicator, Stack, Text, Title, useMantineTheme } from "@mantine/core"
+
 import BackButton from "../buttons/BackButton"
 import OrgsButton from "../buttons/OrgsButton"
 import ReposButton from "../buttons/ReposButton"
 import GithubStats from "../GithubStats"
+
+import { useUserData } from "../../hooks/useUserData"
 
 const UserCard = () => {
   const theme = useMantineTheme()

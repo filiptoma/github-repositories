@@ -1,3 +1,4 @@
+import { SunIcon, MoonIcon } from "@heroicons/react/outline"
 import {
   Center,
   Group,
@@ -7,7 +8,6 @@ import {
   useMantineTheme
 } from "@mantine/core"
 import { upperFirst } from "@mantine/hooks"
-import { SunIcon, MoonIcon } from "@heroicons/react/outline"
 
 const ToggleColorSchemeButton = () => {
   const theme = useMantineTheme()

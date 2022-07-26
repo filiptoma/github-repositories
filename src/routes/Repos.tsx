@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+
 import Spinner from "../components/Spinner"
 import ReposTable from "../components/tables/ReposTable"
 import useError from "../hooks/useError"
@@ -16,7 +17,6 @@ const Repos = () => {
       setLoading(true)
       try {
         const res = userId && (await getRepos(userId))
-        console.log(res)
         setRepos(res)
       } catch (err) {
         useError(err)

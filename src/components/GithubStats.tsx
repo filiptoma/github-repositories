@@ -1,7 +1,9 @@
-import { Group, Stack, Text } from "@mantine/core"
-import { useUserData } from "../hooks/useUserData"
 import { LocationMarkerIcon, LinkIcon, UserIcon } from "@heroicons/react/outline"
+import { Group, Stack, Text } from "@mantine/core"
+
 import IconStat from "./IconStat"
+
+import { useUserData } from "../hooks/useUserData"
 import { formatISODate } from "../utils"
 
 const GithubStats = () => {

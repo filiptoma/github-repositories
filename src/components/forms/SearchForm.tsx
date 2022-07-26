@@ -1,10 +1,12 @@
+import { SearchIcon } from "@heroicons/react/outline"
 import { TextInput, TextInputProps } from "@mantine/core"
 import { useForm, yupResolver } from "@mantine/form"
-import { SearchIcon } from "@heroicons/react/outline"
-import SearchButton from "../buttons/SearchButton"
-import { userSearchSchema } from "../../utils/schema"
 import { useState } from "react"
+
+import SearchButton from "../buttons/SearchButton"
+
 import useUserSearch from "../../hooks/useUserSearch"
+import { userSearchSchema } from "../../utils/schema"
 
 const SearchForm = (props: TextInputProps) => {
   const form = useForm({
