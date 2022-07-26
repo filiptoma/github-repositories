@@ -16,6 +16,7 @@ export type TUser = {
 export type TOrganization = {
   avatar_url: string
   login: string
+  description: string
 }
 
 export type TRepository = {
