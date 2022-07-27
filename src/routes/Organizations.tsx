@@ -9,22 +9,17 @@ import useUserSearch from "../hooks/useUserSearch"
 
 const Organizations = () => {
   const { userId } = useParams()
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const fetchUser = useUserSearch(setLoading)
-  const [userData] = useUserData()
+  const { fetchUser, isLoading, userData } = useUserSearch()
 
   useEffect(() => {
-    if (!userId || userData?.user.login === userId) {
-      return
-    }
     fetchUser(userId)
   }, [])
 
   return (
-    <Container size="xs">
+    <>
       {isLoading && <Spinner />}
       {userData && <OrganizationsGrid />}
-    </Container>
+    </>
   )
 }
 

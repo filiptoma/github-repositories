@@ -1,34 +1,38 @@
-import { Dispatch, SetStateAction } from "react"
+import { useCallback, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import useError from "./useError"
 import { useUserData } from "./useUserData"
 
 import { getUserData } from "../utils/api"
-import { TSearchForm } from "../utils/types"
 
-const useUserSearch = (
-  setLoading: Dispatch<SetStateAction<boolean>>,
-  setValues?: Dispatch<SetStateAction<TSearchForm>>
-) => {
+const useUserSearch = () => {
   const navigate = useNavigate()
-  const [, setUserData] = useUserData()
+  const [userData, setUserData] = useUserData()
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const e = useError()
 
-  const fetchUser = async (user: string) => {
+  const fetchUser = useCallback(async (userId?: string, to?: string) => {
+    if (!userId || userId === userData?.user.login) {
+      return
+    }
     setLoading(true)
     try {
-      const res = await getUserData(user)
+      const res = await getUserData(userId)
       setUserData(res)
-      navigate(`/${user}`)
+      to && navigate(to)
     } catch (err) {
-      useError(err)
+      e(err)
     } finally {
-      setValues && setValues({ user: "" })
       setLoading(false)
     }
-  }
+  }, [])
 
-  return fetchUser
+  return {
+    fetchUser,
+    isLoading,
+    userData
+  }
 }
 
 export default useUserSearch

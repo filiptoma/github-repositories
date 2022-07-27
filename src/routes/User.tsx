@@ -1,10 +1,9 @@
 import { Container } from "@mantine/core"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 import UserCard from "../components/cards/UserCard"
 import Spinner from "../components/Spinner"
-import { useUserData } from "../hooks/useUserData"
 import useUserSearch from "../hooks/useUserSearch"
 
 const User = () => {
@@ -12,14 +11,9 @@ const User = () => {
   // abhisheknaiidu
   // mchehab
   const { userId } = useParams()
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const fetchUser = useUserSearch(setLoading)
-  const [userData] = useUserData()
+  const { fetchUser, isLoading, userData } = useUserSearch()
 
   useEffect(() => {
-    if (!userId || userData?.user.login === userId) {
-      return
-    }
     fetchUser(userId)
   }, [])
 

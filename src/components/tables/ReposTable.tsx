@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "@heroicons/react/outline"
-import { ActionIcon, Box, Paper, Table, useMantineTheme } from "@mantine/core"
+import { ActionIcon, Box, Paper, Table, Text, useMantineTheme } from "@mantine/core"
 
 import BackButton from "../buttons/BackButton"
 
@@ -40,9 +40,7 @@ const ReposTable = ({ repos }: Props) => {
 
   return (
     <>
-      <Box my="sm">
-        <BackButton />
-      </Box>
+      <BackButton my="sm" />
       <Paper
         px="xl"
         py="sm"
@@ -62,11 +60,7 @@ const ReposTable = ({ repos }: Props) => {
           <tbody>{rows}</tbody>
         </Table>
       </Paper>
-      {repos.length > 10 && (
-        <Box my="sm">
-          <BackButton />
-        </Box>
-      )}
+      {repos.length > 10 && <BackButton my="sm" />}
     </>
   )
 }

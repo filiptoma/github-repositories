@@ -1,19 +1,24 @@
 import { showNotification } from "@mantine/notifications"
 import { AxiosError } from "axios"
-import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const useError = (err: unknown) => {
+const useError = () => {
   const navigate = useNavigate()
-  useEffect(() => {
+
+  const e = (err: unknown) => {
     showNotification({
       title: "Error occured",
-      message: err instanceof AxiosError ? err.response?.data.message : String(err),
+      message:
+        err instanceof AxiosError
+          ? `[${err.response?.status}] ${err.response?.data.message}`
+          : String(err),
       color: "red",
-      autoClose: 6000
+      autoClose: 4000
     })
     navigate("/")
-  }, [err])
+  }
+
+  return e
 }
 
 export default useError

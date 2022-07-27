@@ -7,10 +7,11 @@ import useError from "../hooks/useError"
 import { getRepos } from "../utils/api"
 import { TRepository } from "../utils/types"
 
-const Repos = () => {
+const Repositories = () => {
   const { userId } = useParams()
-  const [isLoading, setLoading] = useState<boolean>(false)
   const [repos, setRepos] = useState<TRepository[]>()
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const e = useError()
 
   useEffect(() => {
     ;(async () => {
@@ -19,7 +20,7 @@ const Repos = () => {
         const res = userId && (await getRepos(userId))
         setRepos(res)
       } catch (err) {
-        useError(err)
+        e(err)
       } finally {
         setLoading(false)
       }
@@ -34,4 +35,4 @@ const Repos = () => {
   )
 }
 
-export default Repos
+export default Repositories
