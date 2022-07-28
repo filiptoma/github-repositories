@@ -8,7 +8,6 @@ A small React project made as an interview task for InQool. App retrieves and di
 - Custom hooks and context
 - Routing with [React Router v6](https://reactrouter.com/docs/en/v6)
 - Project deployment on Vercel
-- Dockerization with Docker
 
 ## How to run
 First, clone this repository, `cd` into it and run `yarn` to install dependencies.
