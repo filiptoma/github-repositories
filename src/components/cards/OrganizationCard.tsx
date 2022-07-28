@@ -1,4 +1,5 @@
-import { Avatar, Card, Stack, Text, Title } from "@mantine/core"
+import { Avatar, Card, Stack, Title } from "@mantine/core"
+
 import { TOrganization } from "../../utils/types"
 
 type Props = {

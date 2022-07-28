@@ -1,8 +1,10 @@
 import { Container, Stack, Title } from "@mantine/core"
 
 import SearchForm from "../components/forms/SearchForm"
+import useRouteTitle from "../hooks/useRouteTitle"
 
 const Home = () => {
+  useRouteTitle("Home")
   return (
     <Container size="xs">
       <Stack>

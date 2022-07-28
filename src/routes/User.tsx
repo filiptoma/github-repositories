@@ -4,13 +4,12 @@ import { useParams } from "react-router-dom"
 
 import UserCard from "../components/cards/UserCard"
 import Spinner from "../components/Spinner"
+import useRouteTitle from "../hooks/useRouteTitle"
 import useUserSearch from "../hooks/useUserSearch"
 
 const User = () => {
-  // minoveaz
-  // abhisheknaiidu
-  // mchehab
   const { userId } = useParams()
+  useRouteTitle(userId ?? "")
   const { fetchUser, isLoading, userData } = useUserSearch()
 
   useEffect(() => {

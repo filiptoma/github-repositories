@@ -55,7 +55,7 @@ const Layout = ({ children }: Props) => {
               }}
             >
               <UnstyledButton component={Link} to="/">
-                <Title order={2}>GitHub Social Hub</Title>
+                <Title order={2}>👽 GitHub Social Hub</Title>
               </UnstyledButton>
               <ToggleColorSchemeButton />
             </Container>

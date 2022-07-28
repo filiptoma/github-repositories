@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
-import Error404 from "../routes/Error404"
 
+import Error404 from "../routes/Error404"
 import Home from "../routes/Home"
 import Organizations from "../routes/Organizations"
 import Repositories from "../routes/Repositories"

@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "@heroicons/react/outline"
-import { ActionIcon, Box, Paper, Table, Text, useMantineTheme } from "@mantine/core"
+import { ActionIcon, Paper, Table, useMantineTheme } from "@mantine/core"
 
 import BackButton from "../buttons/BackButton"
 

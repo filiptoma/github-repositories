@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import useError from "./useError"
@@ -12,13 +12,15 @@ const useUserSearch = () => {
   const [isLoading, setLoading] = useState<boolean>(false)
   const e = useError()
 
-  const fetchUser = useCallback(async (userId?: string, to?: string) => {
-    if (!userId || userId === userData?.user.login) {
+  const fetchUser = async (userId?: string, to?: string) => {
+    // if trying to view user that is already loaded in state
+    if (userId === userData?.user.login) {
+      to && navigate(to)
       return
     }
     setLoading(true)
     try {
-      const res = await getUserData(userId)
+      const res = await getUserData(userId ?? "")
       setUserData(res)
       to && navigate(to)
     } catch (err) {
@@ -26,7 +28,7 @@ const useUserSearch = () => {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }
 
   return {
     fetchUser,

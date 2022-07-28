@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom"
 import Spinner from "../components/Spinner"
 import ReposTable from "../components/tables/ReposTable"
 import useError from "../hooks/useError"
+import useRouteTitle from "../hooks/useRouteTitle"
 import { getRepos } from "../utils/api"
 import { TRepository } from "../utils/types"
 
 const Repositories = () => {
   const { userId } = useParams()
+  useRouteTitle(`${userId}'s Repositories`)
   const [repos, setRepos] = useState<TRepository[]>()
   const [isLoading, setLoading] = useState<boolean>(false)
   const e = useError()

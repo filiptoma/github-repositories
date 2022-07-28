@@ -1,7 +1,9 @@
 import { SimpleGrid, Text } from "@mantine/core"
-import { useUserData } from "../../hooks/useUserData"
+
 import BackButton from "../buttons/BackButton"
 import OrganizationCard from "../cards/OrganizationCard"
+
+import { useUserData } from "../../hooks/useUserData"
 
 const OrganizationsGrid = () => {
   const [userData] = useUserData()

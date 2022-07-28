@@ -1,7 +1,6 @@
 import { SearchIcon } from "@heroicons/react/outline"
 import { TextInput, TextInputProps } from "@mantine/core"
 import { useForm, yupResolver } from "@mantine/form"
-import { useEffect, useState } from "react"
 
 import SearchButton from "../buttons/SearchButton"
 
@@ -22,7 +21,7 @@ const SearchForm = (props: TextInputProps) => {
         radius="xl"
         size="md"
         rightSection={<SearchButton isLoading={isLoading} />}
-        placeholder="Search Github users"
+        placeholder="Search GitHub users"
         rightSectionWidth={42}
         {...form.getInputProps("user")}
         {...props}
