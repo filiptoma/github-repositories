@@ -6,6 +6,7 @@ type Props = {
   absolute?: boolean
 }
 
+// eslint-disable-next-line
 const BackButton = ({ absolute, ...props }: Props & BoxProps<any>) => {
   const navigate = useNavigate()
   return (
